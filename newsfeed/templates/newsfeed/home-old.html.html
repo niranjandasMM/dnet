@@ -1,0 +1,32 @@
+{% extends 'newsfeed/main.html' %}
+
+{% block content %}
+
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+
+<h1> Home Template</h1>
+
+<div class="home-container">
+
+    <div>
+        {%  include 'newsfeed/topic_comp.html' %}
+    </div>
+
+    <div>
+        <h5>{{room_count}} rooms available</h5>
+        <a href="{% url 'create-room' %}"> Create Room</a>
+
+        {% include 'newsfeed/feed_comp.html' %}
+    </div>
+
+    <div>
+        {% include 'newsfeed/activity_comp.html' %}
+    </div>
+
+</div>
+{% endblock %}
